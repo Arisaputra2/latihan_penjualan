@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\RegisterController;
+use App\Models\category;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::resource('/clothes','clotheController');
+Route::resource('/produk',  ProdukController::class);
+Route::get('/register',  [RegisterController::class, 'index']);
+Route::post('/register',  [RegisterController::class, 'store']);

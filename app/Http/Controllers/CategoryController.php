@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\clothe;
-use App\Http\Requests\StoreclotheRequest;
-use App\Http\Requests\UpdateclotheRequest;
+use Illuminate\Http\Request;
+use app\Models\category;
 
-class ClotheController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ClotheController extends Controller
      */
     public function index()
     {
-        $clothe = clothe::all();
-        return view('clothe.index');
+        //
     }
 
     /**
@@ -32,10 +30,10 @@ class ClotheController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreclotheRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreclotheRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -43,10 +41,10 @@ class ClotheController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\clothe  $clothe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(clothe $clothe)
+    public function show($id)
     {
         //
     }
@@ -54,10 +52,10 @@ class ClotheController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\clothe  $clothe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(clothe $clothe)
+    public function edit($id)
     {
         //
     }
@@ -65,11 +63,11 @@ class ClotheController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateclotheRequest  $request
-     * @param  \App\Models\clothe  $clothe
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateclotheRequest $request, clothe $clothe)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +75,10 @@ class ClotheController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\clothe  $clothe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(clothe $clothe)
+    public function destroy($id)
     {
         //
     }
