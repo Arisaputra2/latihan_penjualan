@@ -32,12 +32,12 @@
                         <td>{{ $p->created_at }}</td>
                         <td>{{ $p->updated_at }}</td>
                         <td>
-                            <form action="/Form/{{ $form->email }}" method="post" class="d-inline">
+                            <form action="/produk" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger border-0" onclick="return confirm('Anda ingin menghapus?')"><span>Delete</span></button>
+                                <button class="btn btn-danger" onclick="return confirm('Anda ingin menghapus?')"><span>Delete</span></button>
                             </form>
-                            <a href="/Form/ubah/{{ $form->name }}" class="text-decoration-none text-dark badge"><span> Ubah</span></a>
+                            <a href="" class="text-decoration-none text-dark badge"><button class="btn btn-primary border-0"><span>Ubah</span></button></a>
                         </td>
                       </tr>
                       @endforeach    

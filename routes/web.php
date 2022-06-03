@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
-use App\Models\category;
-use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -17,10 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', function(){
+    return view('welcome');
 });
 
-Route::resource('/produk',  ProdukController::class);
-Route::get('/register',  [RegisterController::class, 'index']);
+
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::resource('/produk',  ProdukController::class)->middleware('auth');
+Route::get('/register',  [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register',  [RegisterController::class, 'store']);
+
+Route::resource('/produk/create',  CreateController::class)->middleware('auth');
+
+

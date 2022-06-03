@@ -22,26 +22,47 @@
               <h3 class="fw-bold">Login</h3>
               <p class="text-capitalize mb-1">Your Honor come with us</p>
             </div>
+
+            @if (session()->has('success'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              {{ session('success') }}
+            </div>
+            @endif
+
+            @if (session()->has('failed'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{ session('failed') }}
+            </div>
+            @endif
+
+
             <div class="row p-5">
               <button class="bg-white btn btn-outline-dark fw-bold fs-6 mt-4 border" style="font-size: 12px">
                 <img src="/Gambar/icon google.png" alt="icon" class="me-3" /><span class="google text-dark bg-white">Sign In With Google</span>
               </button>
-              <form action="" class="mt-5 p-0">
+              <form action="/login" class="mt-5 p-0" method="post">
+                @csrf
                 <div class="mb-4">
-                  <label for="email" class="form-label">Email*</label>
-                  <input type="email" class="form-control border" id="exampleInputEmail1" placeholder="mail@website.com" />
+                  <label for="email" class="form-label @error('email') is-invalid @enderror" for="email">Email*</label>
+                  <input type="email" class="form-control border" id="email" name="email" placeholder="mail@website.com" autofocus required value="{{ old('email') }}"/>
+                  @error('email')
+                  <div class="invalid-feedback">
+                    {{ $message }}    
+                  </div>
+                  @enderror
                 </div>
                 <div class="mb-4">
-                  <label for="exampleInputPassword1" class="form-label">Password*</label>
-                  <input type="password" class="form-control border" id="exampleInputPassword1" placeholder="Min.8 character" />
+                  <label for="password" class="form-label">Password*</label>
+                  <input type="password" class="form-control border" name="password" id="password" placeholder="Min.8 character" required/>
                 </div>
                 <div class="mb-4 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1" />
                   <label for="checkBox">Remember me</label>
                   <label for="" class="float-end text-primary fw-bold"><a href="" class="text-decoration-none">Forget password ?</a></label>
                 </div>
+                {{-- <input type="submit" class="btn btn-primary button mt-3 p-3 mb-3"> --}}
+                <button type="submit" class="btn btn-primary mb-5 d-block justify-content-center">Login</button>
               </form>
-              <button type="submit" class="btn btn-primary button mt-3 p-3 mb-3">Login</button>
               <label for="">Not register yet? <a href="/register" class="text-primary text-decoration-none">Create an Account</a></label>
             </div>
           </div>
