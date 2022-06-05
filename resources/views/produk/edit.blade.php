@@ -5,7 +5,11 @@
     <div class="container">
         <div class="row mt-5 mb-5">
             <h5 class="text-center">Halaman Update</h5>
+<<<<<<< HEAD
             <div class="col-lg-12 justify-content-center d-block">
+=======
+            <div class="col-lg-8">
+>>>>>>> ef354c6e8cbcdc7f06bcdda233fe816516de6cd7
                 <form method="POST" action="/produk/{{ $produk->nama }}">
                     @method('put')
                     @csrf

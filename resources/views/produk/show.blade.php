@@ -2,11 +2,11 @@
 
 @section('section')
     <div class="container bg-light mt-5 p-5">
-        <div class="row">
+        <div class="row text-center">
             <h5>Halaman View Produk</h5>
         </div>
         <div class="row">
-            <div class="col-lg-6 p-3">
+            <div class="col-lg-8 p-3">
                   <div class="mb-3 mt-5">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control" id="nama" name="nama" value="{{ $produk->nama }}" disabled>
@@ -28,9 +28,6 @@
                     <input type="text" class="form-control" id="harga_jual" name="harga_jual" value="{{ $produk->harga_jual }}" disabled>
                   </div>
                   <a href="/produk" class="btn btn-primary mt-4">Back to Produk</a>
-            </div>
-            <div class="col-lg-3 p-5">
-                <img src="/Gambar/gambar.png" alt="" width="450px" class="ms-5">
             </div>
         </div>
     </div>

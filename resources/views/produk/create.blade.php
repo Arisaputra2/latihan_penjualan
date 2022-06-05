@@ -19,7 +19,11 @@
                     </div>
                     <div class="mb-3">
                       <label for="kategori" class="form-label">Id Kategori</label>
+<<<<<<< HEAD
                       <select class="form-select mb-3" name="category_id" id="kategori">
+=======
+                      <select class="form-select form-select-lg mb-3" name="category_id" id="kategori">
+>>>>>>> ef354c6e8cbcdc7f06bcdda233fe816516de6cd7
                           @foreach ($categories as $category)
                           <option value="{{ $category->id }}">{{ $category->nama }}</option>
                           @endforeach
