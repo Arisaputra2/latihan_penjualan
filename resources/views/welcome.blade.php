@@ -8,16 +8,16 @@
     <title>Latihan Penjualan</title>
 </head>
 <body>
-    <section class="vh-100 bg-dark">
+    <section class="vh-100">
         <div class="container h-100 p-5">
             <div class="row">
                 <div class="col align-content-center">
-                    <h1 class="text-center text-white">Wellcome!</h1>
+                    <h1 class="text-center text-dark">Wellcome!</h1>
                 </div>
             </div>
             <div class="row text-center mt-5">
                 <div class="col">
-                    <a href="/login"><button class="btn btn-primary mt-5">Login Here!</button></a>
+                    <a href="/produk"><button class="btn btn-primary mt-5">Login Here!</button></a>
                 </div>
             </div>
         </div>

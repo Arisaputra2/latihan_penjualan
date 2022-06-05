@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row mt-5 mb-5">
-            <h5>Halaman Update</h5>
+            <h5 class="text-center">Halaman Update</h5>
             <div class="col-lg-8">
                 <form method="POST" action="/produk/{{ $produk->nama }}">
                     @method('put')

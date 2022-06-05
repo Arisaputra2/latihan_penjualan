@@ -19,7 +19,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="kategori" class="form-label">Id Kategori</label>
-                      <select class="form-select form-select-lg mb-3" name="id_kategori" id="kategori">
+                      <select class="form-select form-select-lg mb-3" name="category_id" id="kategori">
                           @foreach ($categories as $category)
                           <option value="{{ $category->id }}">{{ $category->nama }}</option>
                           @endforeach

@@ -10,27 +10,22 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-light" href="#">Wellcome Back, {{ Auth::user()->name }}</a>
+      <a class="navbar-brand text-light" href="#">Wellcome</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      @auth
+     
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="/"></a>
         </li>
-        <form action="/logout" method="POST">
+        <form action="/" method="POST">
         @csrf
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="/">Logout</a>
         </li>
       </form>
-        @else
-        <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="/login">Login</a>
-        </li>
-        @endauth
       </ul>  
 
     </div>
