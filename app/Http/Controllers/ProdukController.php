@@ -29,6 +29,7 @@ class ProdukController extends Controller
     public function create()
     {
         return view('produk.create',[
+            'produk' => Produk::all(),
            'categories' => Category::all() 
         ]);
     }
@@ -43,7 +44,7 @@ class ProdukController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
-            'id_kategori' => 'required',
+            'category_id' => 'required',
             'qty' => 'required',
             'harga_beli' => 'required',
             'harga_jual' => 'required',
@@ -91,7 +92,7 @@ class ProdukController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
-            'id_kategori' => 'required',
+            'category_id' => 'required',
             'qty' => 'required',
             'harga_beli' => 'required',
             'harga_jual' => 'required',

@@ -4,8 +4,8 @@
 
     <div class="container">
         <div class="row mt-5 mb-5">
-            <h5>Halaman Update</h5>
-            <div class="col-lg-8">
+            <h5 class="text-center">Halaman Update</h5>
+            <div class="col-lg-12 justify-content-center d-block">
                 <form method="POST" action="/produk/{{ $produk->nama }}">
                     @method('put')
                     @csrf
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="kategori" class="form-label">Id Kategori</label>
-                      <select class="form-select form-select-lg mb-3" name="category_id" id="kategori">
+                      <select class="form-select mb-3" name="category_id" id="kategori">
                           @foreach ($categories as $category)
                           @if (old('category_id', $produk->category_id) == $category->id)
                           <option value="{{ $category->id }}" selected>{{ $category->nama }}</option>
@@ -57,8 +57,8 @@
                       </div>
                   @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary border-0 mt-3">Update Produk</button>
-                    <a href="/produk" class="btn btn-warning ms-5 mt-3">Back to Produk</a>
+                    <button type="submit" class="btn btn-primary border-0 mt-3 mb-3">Update Produk</button>
+                    <a href="/produk" class="btn btn-secondary ms-5 mt-3 mb-3">Back to Produk</a>
                   </form>
             </div>
         </div>

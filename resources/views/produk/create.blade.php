@@ -4,8 +4,8 @@
 
     <div class="container">
         <div class="row mt-5 mb-5">
-            <h5>Halaman Create</h5>
-            <div class="col-lg-8">
+            <h5 class="text-center">Halaman Create</h5>
+            <div class="col-lg-12 justify-content-center d-block">
                 <form method="POST" action="/produk">
                     @csrf
                     <div class="mb-3 mt-5">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="kategori" class="form-label">Id Kategori</label>
-                      <select class="form-select form-select-lg mb-3" name="id_kategori" id="kategori">
+                      <select class="form-select mb-3" name="category_id" id="kategori">
                           @foreach ($categories as $category)
                           <option value="{{ $category->id }}">{{ $category->nama }}</option>
                           @endforeach
