@@ -26,12 +26,15 @@ Route::get('/', function(){
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
+
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::resource('/produk',  ProdukController::class)->middleware('auth');
+Route::resource('/produk', ProdukController::class);
+
 Route::get('/register',  [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register',  [RegisterController::class, 'store']);
 
-Route::resource('/produk/create',  CreateController::class)->middleware('auth');
+
+
 
 

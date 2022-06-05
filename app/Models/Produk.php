@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produk extends Model
 {
-    protected $guarded = ['id','create_at','update_at'];
+    protected $guarded = ['id'];
 
     public function category(){
-        return $this->hasOne('App\category','id','id_category');
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'nama';
     }
 }

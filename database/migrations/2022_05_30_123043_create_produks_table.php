@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('produks', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('nama');
-                $table->integer('id_kategori');
+                $table->foreignId('category_id');
                 $table->integer('qty');
                 $table->integer('harga_beli');
                 $table->integer('harga_jual');

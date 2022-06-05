@@ -22,10 +22,7 @@ class CategoryTableSeeder extends Seeder
             'nama' => 'Minuman'
         ]);
         category::create([
-            'nama' => 'Baju'
-        ]);
-        category::create([
-            'nama' => 'Celana'
+            'nama' => 'Kendaraan'
         ]);
         category::create([
             'nama' => 'Alat Masak'

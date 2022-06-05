@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Produk;
-use App\Http\Requests\StoreProdukRequest;
-use App\Http\Requests\UpdateProdukRequest;
+use App\Models\Category;
 
 class ProdukController extends Controller
 {
@@ -16,7 +16,8 @@ class ProdukController extends Controller
     public function index()
     {
         return view('produk.index',[
-            'produk' => Produk::all()
+            'produk' => Produk::all(),
+            'categories' => Category::all()
         ]);
     }
 
@@ -27,18 +28,28 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('produk.create',[
+           'categories' => Category::all() 
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProdukRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProdukRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'id_kategori' => 'required',
+            'qty' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
+            ]);
+            Produk::create($validatedData);
+        return redirect('/produk')->with('success', 'Berhasil Menambahkan Data!');
     }
 
     /**
@@ -49,7 +60,10 @@ class ProdukController extends Controller
      */
     public function show(Produk $produk)
     {
-        return $produk;
+        return view('produk.show',[
+            'produk' => $produk,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -60,19 +74,32 @@ class ProdukController extends Controller
      */
     public function edit(Produk $produk)
     {
-        //
+        return view('produk.edit',[
+            'produk' => $produk,
+            'categories' => Category::all()
+         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProdukRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProdukRequest $request, Produk $produk)
+    public function update(Request $request, Produk $produk)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'id_kategori' => 'required',
+            'qty' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
+            ]);
+
+            Produk::where('id', $produk->id)
+                ->update($validatedData);
+            return redirect('/produk')->with('success', 'Berhasil Merubah Data!');
     }
 
     /**
@@ -83,6 +110,7 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        //
+        Produk::destroy($produk->id);
+        return redirect('/produk')->with('success', 'Produk Berhasil Dihapus');
     }
 }
